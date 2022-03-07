@@ -20,7 +20,7 @@ export const App = () => {
 			navigator.geolocation.getCurrentPosition(async position => {
 				const { latitude, longitude } = position.coords;
 				try {
-					const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&q=${latitude},${longitude}&days=2&aqi=no&alerts=no`);
+					const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&q=${latitude},${longitude}&days=2&aqi=no&alerts=no`);
 					const data = await res.json();
 
 					setTomorrowCondition(data.forecast.forecastday[1].day.condition.text);
